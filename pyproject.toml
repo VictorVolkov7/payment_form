@@ -9,6 +9,11 @@ packages = [{include = "payment_form"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.2"
+djangorestframework = "^3.14.0"
+python-dotenv = "^1.0.1"
+drf-spectacular = "^0.27.1"
+psycopg2-binary = "^2.9.9"
+stripe = "^8.5.0"
 
 
 [build-system]

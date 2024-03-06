@@ -3,12 +3,17 @@ import os
 import stripe
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from drf_spectacular.utils import extend_schema
+from rest_framework import status
 from rest_framework.views import APIView
 
 from products.models import Item, Order
 from products.services import stipe_payment_created
 
 
+@extend_schema(
+    summary="Retrieves simple html page with item.",
+    )
 class ItemDetailIView(APIView):
     """
     Retrieves html page a single item from the database.
@@ -20,6 +25,9 @@ class ItemDetailIView(APIView):
         return render(request, 'item_detail.html', {'object': item})
 
 
+@extend_schema(
+    summary="Retrieves simple html page with order.",
+    )
 class OrderDetailIView(APIView):
     """
     Retrieves html page order from the database.
@@ -34,6 +42,9 @@ class OrderDetailIView(APIView):
         return render(request, 'order_detail.html', {'object': order})
 
 
+@extend_schema(
+    summary=" Retrieves stripe's session id.",
+    )
 class StripeSessionDetail(APIView):
     """
     Retrieves stripe's session id.

@@ -115,7 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 AUTH_USER_MODEL = 'users.User'
@@ -147,8 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Spectacular documentation settings
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Electronics sales networks',
-    'DESCRIPTION': 'Backend part for electronics sales networks',
+    'TITLE': 'Payment form',
+    'DESCRIPTION': 'Django + Stripe API backend',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }

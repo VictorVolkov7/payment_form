@@ -1,10 +1,8 @@
 import os
 
-import stripe
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from drf_spectacular.utils import extend_schema
-from rest_framework import status
 from rest_framework.views import APIView
 
 from products.models import Item, Order
@@ -22,7 +20,9 @@ class ItemDetailIView(APIView):
     @staticmethod
     def get(request, *args, **kwargs):
         item = get_object_or_404(Item, pk=kwargs.get('pk'))
-        return render(request, 'item_detail.html', {'object': item})
+        return render(
+            request, 'item_detail.html', {'object': item, 'api_key': os.getenv('STRIPE_PUBLIC_KEY')}
+        )
 
 
 @extend_schema(
@@ -39,7 +39,9 @@ class OrderDetailIView(APIView):
         order.calculate_total_price()
         order.name = f'Order {order.pk}'
         order.save()
-        return render(request, 'order_detail.html', {'object': order})
+        return render(
+            request, 'order_detail.html', {'object': order, 'api_key': os.getenv('STRIPE_PUBLIC_KEY')}
+        )
 
 
 @extend_schema(

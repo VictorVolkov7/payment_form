@@ -1,0 +1,36 @@
+[
+  {
+    "model": "products.order",
+    "pk": 1,
+    "fields": {
+      "items": [
+        1,
+        2,
+        3
+      ],
+      "discount": 1
+    }
+  },
+  {
+    "model": "products.order",
+    "pk": 2,
+    "fields": {
+      "items": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "products.order",
+    "pk": 3,
+    "fields": {
+      "items": [
+        1,
+        2,
+        4
+      ],
+      "discount": 2
+    }
+  }
+]

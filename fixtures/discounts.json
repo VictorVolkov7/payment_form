@@ -1,0 +1,16 @@
+[
+  {
+    "model": "products.discount",
+    "pk": 1,
+    "fields": {
+      "discount": 50
+    }
+  },
+  {
+    "model": "products.discount",
+    "pk": 2,
+    "fields": {
+      "discount": 15
+    }
+  }
+]

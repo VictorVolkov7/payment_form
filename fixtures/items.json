@@ -1,0 +1,38 @@
+[
+  {
+    "model": "products.item",
+    "pk": 1,
+    "fields": {
+      "name": "Телефон",
+      "description": "Хороший телефон",
+      "price": 59.99
+    }
+  },
+  {
+    "model": "products.item",
+    "pk": 2,
+    "fields": {
+      "name": "Планшет",
+      "description": "Хороший планшет",
+      "price": 75.00
+    }
+  },
+  {
+    "model": "products.item",
+    "pk": 3,
+    "fields": {
+      "name": "Фен",
+      "description": "Хороший фен",
+      "price": 25.50
+    }
+  },
+  {
+    "model": "products.item",
+    "pk": 4,
+    "fields": {
+      "name": "Утюг",
+      "description": "Хороший утюг",
+      "price": 14.99
+    }
+  }
+]

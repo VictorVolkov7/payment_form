@@ -28,6 +28,20 @@ class Item(models.Model):
         verbose_name_plural = _('Items')
 
 
+class Discount(models.Model):
+    """
+    Discount model.
+    """
+    discount = models.SmallIntegerField(verbose_name=_('Discount'), default=0)
+
+    def __str__(self):
+        return f'{self.discount} %'
+
+    class Meta:
+        verbose_name = _('Discount')
+        verbose_name_plural = _('Discounts')
+
+
 class Order(models.Model):
     """
     Order model.
@@ -49,6 +63,13 @@ class Order(models.Model):
         decimal_places=2,
         default=0.0,
         verbose_name=_('Total Price'),
+    )
+    discount = models.ForeignKey(
+        Discount,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name=_('Discount')
     )
 
     def calculate_total_price(self):

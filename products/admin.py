@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from products.models import Item, Order
+from products.models import Item, Order, Discount
 
 
 @admin.register(Item)
@@ -14,3 +14,6 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     readonly_fields = ('name', 'total_price',)
+
+
+admin.site.register(Discount)

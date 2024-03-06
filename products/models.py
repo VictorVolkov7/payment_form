@@ -26,3 +26,42 @@ class Item(models.Model):
     class Meta:
         verbose_name = _('Item')
         verbose_name_plural = _('Items')
+
+
+class Order(models.Model):
+    """
+    Order model.
+    """
+    name = models.CharField(
+        max_length=30,
+        default=_('New order'),
+        blank=True,
+        null=True,
+        verbose_name=_('Name'),
+    )
+    items = models.ManyToManyField(
+        Item,
+        related_name='items',
+        verbose_name=_('Items'),
+    )
+    total_price = models.DecimalField(
+        max_digits=19,
+        decimal_places=2,
+        default=0.0,
+        verbose_name=_('Total Price'),
+    )
+
+    def calculate_total_price(self):
+        """
+        Calculate total item's price.
+        """
+        total = sum(item.price for item in self.items.all())
+        self.total_price = total
+        self.save()
+
+    def __str__(self):
+        return f'{self.name} - {self.total_price}'
+
+    class Meta:
+        verbose_name = _('Order')
+        verbose_name_plural = _('Orders')
